@@ -1,0 +1,1 @@
+Make sure you create create a placeholder callback in your app settings, or you will be locked to OOB auth
