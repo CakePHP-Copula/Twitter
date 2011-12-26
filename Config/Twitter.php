@@ -8,7 +8,7 @@
  */
 $config['Apis']['Twitter']['hosts'] = array(
 	'oauth' => 'api.twitter.com/oauth',
-	'rest' => 'api.github.com',
+	'rest' => 'api.twitter.com/1',
 );
 // http://developer.github.com/v3/oauth/
 $config['Apis']['Twitter']['oauth'] = array(
@@ -21,7 +21,7 @@ $config['Apis']['Twitter']['read'] = array(
 
 $config['Apis']['Twitter']['create'] = array(
 	// field
-	'tweets' => array(	
+	'tweets' => array(
 		'statuses/update' => array(
 			'status',
 			'optional' => array(
