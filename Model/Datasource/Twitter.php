@@ -34,6 +34,13 @@ class Twitter extends ApisSource {
         )
     );
 
+	/**
+	 * The description of this data source
+	 *
+	 * @var string
+	 */
+	public $description = 'Twitter DataSource';
+
     /**
 	 * Set the datasource to use OAuth
 	 *
@@ -48,17 +55,6 @@ class Twitter extends ApisSource {
     public function describe($model) {
         return $this->_schema['tweets'];
     }
-
-	/**
-	 * The description of this data source
-	 *
-	 * @var string
-	 */
-	public $description = 'Twitter DataSource';
-	
-	public function listSources() {
-		return array('tweets');
-	}
 
 	/**
 	 * Stores the queryData so that the tokens can be substituted just before requesting
