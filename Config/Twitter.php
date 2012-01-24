@@ -17,6 +17,9 @@ $config['Apis']['Twitter']['oauth'] = array(
 	'access' => 'access_token',
 );
 $config['Apis']['Twitter']['read'] = array(
+	'tweets' => array(
+		
+	),
 );
 
 $config['Apis']['Twitter']['create'] = array(

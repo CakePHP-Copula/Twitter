@@ -1,38 +1,38 @@
 <?php
 /**
- * Twitter Driver for Apis Source
- * 
- * Makes usage of the Apis plugin by Proloser
- *
- * @package Twitter Datasource
- * @author Dean Sofer
- * @version 0.0.1
- **/
+	* Twitter Driver for Apis Source
+	* 
+	* Makes usage of the Apis plugin by Proloser
+	*
+	* @package Twitter Datasource
+	* @author Dean Sofer
+	* @version 0.0.1
+	**/
 App::uses('ApisSource', 'Apis.Model/Datasource');
 class Twitter extends ApisSource {
-	
+
 	public $_schema = array(
-        'tweets' => array(
-            'id' => array(
-                'type' => 'integer',
-                'null' => true,
-                'key' => 'primary',
-                'length' => 11,
-            ),
-            'text' => array(
-                'type' => 'string',
-                'null' => true,
-                'key' => 'primary',
-                'length' => 140
-            ),
-            'status' => array(
-                'type' => 'string',
-                'null' => true,
-                'key' => 'primary',
-                'length' => 140
-            ),
-        )
-    );
+		'tweets' => array(
+			'id' => array(
+				'type' => 'integer',
+				'null' => true,
+				'key' => 'primary',
+				'length' => 11,
+			),
+			'text' => array(
+				'type' => 'string',
+				'null' => true,
+				'key' => 'primary',
+				'length' => 140,
+			),
+			'status' => array(
+				'type' => 'string',
+				'null' => true,
+				'key' => 'primary',
+				'length' => 140,
+			),
+		),
+	);
 
 	/**
 	 * The description of this data source
@@ -41,7 +41,7 @@ class Twitter extends ApisSource {
 	 */
 	public $description = 'Twitter DataSource';
 
-    /**
+	/**
 	 * Set the datasource to use OAuth
 	 *
 	 * @param array $config
@@ -52,9 +52,9 @@ class Twitter extends ApisSource {
 		parent::__construct($config);
 	}
 
-    public function describe($model) {
-        return $this->_schema['tweets'];
-    }
+	public function describe($model) {
+		return $this->_schema['tweets'];
+	}
 
 	/**
 	 * Stores the queryData so that the tokens can be substituted just before requesting
@@ -68,7 +68,7 @@ class Twitter extends ApisSource {
 		$this->tokens = $queryData['conditions'];
 		return parent::read($model, $queryData);
 	}
-	
+
 	/**
 	 * Supplement the request object with github-specific data
 	 *
@@ -86,7 +86,7 @@ class Twitter extends ApisSource {
 			case 'POST':
 				$request['uri']['path'] .= '.' . $this->options['format'];
 		}
-			
+
 		return $request;
 	}
 }
