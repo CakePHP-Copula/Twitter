@@ -18,7 +18,49 @@ $config['Apis']['Twitter']['oauth'] = array(
 );
 $config['Apis']['Twitter']['read'] = array(
 	'tweets' => array(
-		
+		'statuses/show/:id' => array(
+			'id',
+			'optional' => array(
+				'trim_user',
+				'include_entities',
+			),
+		),
+	),
+	'followers' => array(
+		'followers/ids' => array(
+			'optional' => array(
+				'user_id',
+				'screen_name',
+ 				'cursor',
+				'stringify_ids',
+			),
+		),
+	),
+	'friends' => array(
+		'friends/ids' => array(
+			'optional' => array(
+				'user_id',
+				'screen_name',
+				'cursor',
+				'stringify_ids',
+			),
+		),
+	),
+	'users' => array(
+		'users/show' => array(
+			'user_id',
+			'screen_name',
+			'optional' => array(
+				'include_entities'
+			),
+		),
+		'users/lookup' => array(
+			'optional' => array(
+				'screen_name',
+				'user_id',
+				'include_entities',
+			),
+		),
 	),
 );
 

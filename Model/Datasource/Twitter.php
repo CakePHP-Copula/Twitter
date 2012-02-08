@@ -78,15 +78,10 @@ class Twitter extends ApisSource {
 	public function beforeRequest(&$model, $request) {
 		$request['uri']['scheme'] = 'https';
 		// Attempted fix for 3.0
-		switch (strtoupper($request['method'])) {
-			case 'GET':
-				if (!empty($this->config['access_token']))
-					$request['uri']['query']['access_token'] = $this->config['access_token'];
-				break;
-			case 'POST':
-				$request['uri']['path'] .= '.' . $this->options['format'];
+		if (strtoupper($request['method']) === 'GET' && !empty($this->config['access_token'])) {
+			$request['uri']['query']['access_token'] = $this->config['access_token'];
 		}
-
+		$request['uri']['path'] .= '.' . $this->options['format'];
 		return $request;
 	}
 }
