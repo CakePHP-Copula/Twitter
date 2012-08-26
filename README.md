@@ -39,26 +39,10 @@ MyController extends AppController {
 ```
 
 ### Step 4: Use the datasource normally 
-Check the [wiki](https://github.com/ProLoser/CakePHP-Twitter/wiki) for available commands & usage
+Check the [config file](https://github.com/ProLoser/CakePHP-Twitter/blob/master/Config/Twitter.php) for a list of available 'sections' and the parameters they take
 
 ```
 Class MyModel extends AppModel {
-
-	public function readProfile() {
-		$this->setDataSource('twitter');
-		$data = $this->find('all', array(
-			'path' => 'people/~',
-			'fields' => array(
-				'first-name', 'last-name', 'summary', 'specialties', 'associations', 'honors', 'interests', 'twitter-accounts', 
-				'positions' => array('title', 'summary', 'start-date', 'end-date', 'is-current', 'company'), 
-				'educations', 
-				'certifications',
-				'skills' => array('id', 'skill', 'proficiency', 'years'), 
-				'recommendations-received',
-			),
-		));
-		$this->setDataSource('default');
-	}
 	
 	public function afterSave($created) {
 		if ($created) {
