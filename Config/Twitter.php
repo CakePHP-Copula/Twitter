@@ -5,6 +5,7 @@
  * Refer to the apis plugin for how to build a method map
  * https://github.com/ProLoser/CakePHP-Api-Datasources
  *
+ * @link https://dev.twitter.com/docs/api/1.1
  */
 $config['Apis']['Twitter']['hosts'] = array(
 	'oauth' => 'api.twitter.com/oauth',
